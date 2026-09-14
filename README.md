@@ -34,6 +34,7 @@ Skills trigger on their own when a request matches, or explicitly as `/mikit:<na
 | Skill | What it does |
 |---|---|
 | `clip` | Copies one command, query, or snippet from the conversation to the system clipboard |
+| `rebase` | Rebases the current branch onto the latest default branch, carrying uncommitted changes along |
 
 ## Conventions
 
