@@ -37,6 +37,7 @@ Skills trigger on their own when a request matches, or explicitly as `/mikit:<na
 | `rebase` | Rebases the current branch onto the latest default branch, carrying uncommitted changes along |
 | `reflect` | Reviews the session for mistakes and undocumented conventions, then proposes edits to the project's instructions |
 | `handoff` | Writes a handoff file so a fresh session can resume the task with zero context |
+| `respond-review` | Triages unresolved PR review comments, fixes what is valid, declines what is not, and replies to each |
 
 ## Conventions
 
