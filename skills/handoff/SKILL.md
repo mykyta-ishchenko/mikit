@@ -14,7 +14,7 @@ Write a self-contained handoff so the next session can continue this task with z
    - Open PR, if any: `gh pr view --json number,url,state` (ignore the error when there's none)
    - From this conversation: the goal, what's done, what's left, and every non-obvious decision **and the reason behind it**
 
-2. Write the handoff to `<scratch>/handoff-<branch-slug>.md` (branch slug = branch name with `/` → `-`), following the template below. `<scratch>` is the project's scratch directory if `CLAUDE.md` names one, otherwise `.temp/`; create it if missing, and if it is not gitignored say so in the report instead of committing it.
+2. Write the handoff to `<scratch>/handoff-<branch-slug>.md` (branch slug = branch name with `/` → `-`), following the template below. `<scratch>` is the project's scratch directory if it has a convention for one, otherwise `.temp/`; create it if missing, and if it is not gitignored say so in the report instead of committing it.
    - Be concrete and terse — the reader has no context. Prefer file paths, commands, and exact next steps over prose.
    - Capture the *why* behind decisions so they aren't relitigated, and call out blockers, gotchas, and open questions explicitly.
    - If a focus note was passed with the invocation (`$ARGUMENTS`), give that aspect extra weight.
