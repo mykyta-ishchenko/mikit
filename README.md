@@ -1,0 +1,42 @@
+# MiKit
+
+**How I work, wherever I work.**
+
+A personal [Claude Code](https://docs.anthropic.com/en/docs/claude-code) plugin: the skills I want in every project, independent of any one repo. Project rules live in each repo's `CLAUDE.md`. This kit holds the habits that don't change between them.
+
+## Install
+
+Register the marketplace once, then install the plugin:
+
+```bash
+claude plugin marketplace add mykyta-ishchenko/mikit
+claude plugin install mikit@mikit
+```
+
+To pin it to a project so every clone and CI run gets it, declare it in the project's `.claude/settings.json`:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "mikit": {
+      "source": { "source": "github", "repo": "mykyta-ishchenko/mikit" },
+      "autoUpdate": true
+    }
+  },
+  "enabledPlugins": { "mikit@mikit": true }
+}
+```
+
+## Skills
+
+Skills trigger on their own when a request matches, or explicitly as `/mikit:<name>`.
+
+| Skill | What it does |
+|---|---|
+| `clip` | Copies one command, query, or snippet from the conversation to the system clipboard |
+
+## Conventions
+
+- Every skill is project-agnostic. When one needs project context, it reads the project's `CLAUDE.md` and invokes a `learn-project` skill if the project has one.
+- A skill's description says *when* to use it, not what it does. That line is what Claude matches your request against.
+- Every change bumps `version` in `.claude-plugin/plugin.json`. Installed copies only refresh when the version changes.

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "mikit",
+  "version": "0.1.7",
+  "description": "How I work, wherever I work",
+  "author": {
+    "name": "Mykyta Ishchenko",
+    "email": "mykita.ishchenko@gmail.com"
+  },
+  "homepage": "https://github.com/mykyta-ishchenko/mikit",
+  "repository": "https://github.com/mykyta-ishchenko/mikit",
+  "keywords": [
+    "skills",
+    "workflow",
+    "personal"
+  ]
+}

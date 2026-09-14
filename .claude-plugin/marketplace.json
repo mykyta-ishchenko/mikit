@@ -1,0 +1,16 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "mikit",
+  "description": "Claude Code plugins by Mykyta Ishchenko",
+  "owner": {
+    "name": "Mykyta Ishchenko",
+    "email": "mykita.ishchenko@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "mikit",
+      "description": "How I work, wherever I work",
+      "source": "./"
+    }
+  ]
+}
