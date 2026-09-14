@@ -42,7 +42,7 @@ Skills trigger on their own when a request matches, or explicitly as `/mikit:<na
 
 ## Conventions
 
-- Every skill is project-agnostic. When one needs project context, it reads the project's `CLAUDE.md` and invokes a `learn-project` skill if the project has one.
+- Every skill is project-agnostic. When one needs project context, it defers to the project's own conventions: `CONTRIBUTING.md`, docs, `CLAUDE.md`, whatever the repo has.
 - A skill's description says *when* to use it, not what it does. That line is what Claude matches your request against.
 - Every change bumps `version` in `.claude-plugin/plugin.json`. Installed copies only refresh when the version changes.
 

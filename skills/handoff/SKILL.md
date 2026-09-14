@@ -50,6 +50,6 @@ Write a self-contained handoff so the next session can continue this task with z
 - <blockers, gotchas, failing tests, open questions, things that surprised us>
 
 ## Resume
-- Invoke the project's `learn-project` skill if it has one, otherwise read `CLAUDE.md`; then read this file and pick up from **Next**.
+- Read the project's `CLAUDE.md` and whatever it points to, then read this file and pick up from **Next**.
 - <any task-specific setup or command needed to get going>
 ```
