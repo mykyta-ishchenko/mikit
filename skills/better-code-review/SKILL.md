@@ -27,7 +27,7 @@ Go through each. Skip only what the diff genuinely does not touch, and say what 
 - **Correctness.** Edge cases, error paths, concurrency, resources. The `code-review` skill does most of this; you look for what it missed.
 - **Performance.** Anything that grows with data or traffic: queries in loops, N+1, unbounded memory, missing indexes, work on the hot path that belongs off it.
 - **Tests.** Is every behavior the change introduces covered, with the right kind of test: unit for logic, integration for boundaries, end-to-end only where nothing else proves it? Do the tests check behavior or the implementation? Anything untested that should not be?
-- **Security.** Input handling, auth, secrets, injection, what the change exposes. Run `/security-review` when it touches auth, endpoints, user input, or infrastructure. For LLM integration: prompt injection, data leaving through the model, unsafe use of model output.
+- **Security.** Input handling, auth, secrets, injection, what the change exposes. Run `/security-review` when it touches auth, endpoints, user input, or infrastructure, and `mikit:ai-security` when it touches LLM integration.
 - **Conventions.** Does it follow the project's guides on architecture, naming, structure, testing, docs? Point at the guide, not at your preference.
 - **Clarity.** Could it be written so the next reader needs no explanation? Fewer moving parts, better names, one obvious path.
 - **Comments.** Is each one strictly necessary? A comment that repeats the code, or says what a better name would, goes. A comment that holds a non-obvious why stays.
