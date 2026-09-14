@@ -27,7 +27,7 @@ Reflect on the current session and extract actionable improvements for project d
    - The project's guides — whichever files `CLAUDE.md` references for architecture, conventions, testing, and the like, if the project has them
    - Memory — user-specific preferences that don't belong in the repo
 
-4. Present the list to the user via `AskUserQuestion`:
+4. Present the list to the user:
    - What to add and where
    - Draft text for each addition
    - Let the user approve, edit, or reject each item
