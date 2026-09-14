@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
   "name": "mikit",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "How I work, wherever I work",
   "author": {
     "name": "Mykyta Ishchenko",
@@ -9,6 +9,7 @@
   },
   "homepage": "https://github.com/mykyta-ishchenko/mikit",
   "repository": "https://github.com/mykyta-ishchenko/mikit",
+  "license": "MIT",
   "keywords": [
     "skills",
     "workflow",
