@@ -26,12 +26,12 @@ Go through each. Skip only what the diff genuinely does not touch, and say what 
 - **Architecture.** Are the pieces in the right layers and modules? Any new coupling, cycles, or leaked boundaries?
 - **Correctness.** Edge cases, error paths, concurrency, resources. The `code-review` skill does most of this; you look for what it missed.
 - **Performance.** Anything that grows with data or traffic: queries in loops, N+1, unbounded memory, missing indexes, work on the hot path that belongs off it.
-- **Tests.** Is every behavior the change introduces covered, with the right kind of test: unit for logic, integration for boundaries, end-to-end only where nothing else proves it? Do the tests check behavior or the implementation? Anything untested that should not be?
+- **Tests.** Is every behavior the change introduces covered, with the right kind of test: unit for logic, integration for boundaries, end-to-end only where nothing else proves it? Do the tests check behavior or the implementation? Anything untested that should not be? For Python, `mikit:python-tests` is the checklist.
 - **Security.** Input handling, auth, secrets, injection, what the change exposes. Run `/security-review` when it touches auth, endpoints, user input, or infrastructure, and `mikit:ai-security` when it touches LLM integration.
 - **Conventions.** Does it follow the project's guides on architecture, naming, structure, testing, docs? Point at the guide, not at your preference.
 - **Clarity.** Could it be written so the next reader needs no explanation? Fewer moving parts, better names, one obvious path.
 - **Comments.** Is each one strictly necessary? A comment that repeats the code, or says what a better name would, goes. A comment that holds a non-obvious why stays.
-- **Documentation.** Does anything the change affects need an update: guides, READMEs, changelog? And the reverse: is there documentation here nobody will read, or that duplicates the code?
+- **Documentation.** Does anything the change affects need an update: guides, READMEs, changelog? And the reverse: is there documentation here nobody will read, or that duplicates the code? `mikit:docs` is the checklist.
 - **Best practices.** Of the language, framework, and libraries in play. Current ones, not folklore.
 
 ## Steps
