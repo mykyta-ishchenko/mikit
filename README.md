@@ -36,6 +36,7 @@ Skills trigger on their own when a request matches, or explicitly as `/mikit:<na
 | `clip` | Copies one command, query, or snippet from the conversation to the system clipboard |
 | `rebase` | Rebases the current branch onto the latest default branch, carrying uncommitted changes along |
 | `reflect` | Reviews the session for mistakes and undocumented conventions, then proposes edits to the project's instructions |
+| `handoff` | Writes a handoff file so a fresh session can resume the task with zero context |
 
 ## Conventions
 
