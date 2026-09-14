@@ -35,6 +35,7 @@ Skills trigger on their own when a request matches, or explicitly as `/mikit:<na
 |---|---|
 | `ai-security` | Reviews code that touches an LLM for prompt injection, data exfiltration, unsafe output handling, and auth bypass |
 | `better-code-review` | Runs a full PR review: project context, previous rounds, code, tests, security, with severity-marked comments |
+| `changelog` | Adds Keep a Changelog entries under Unreleased, folding fixes to unreleased work into the original entry |
 | `clip` | Copies one command, query, or snippet from the conversation to the system clipboard |
 | `create-pr` | Drafts a pull request from the branch, using the repo's template if it has one, and opens it after you confirm |
 | `github-review-tutorial` | Rules for posting a PR review on GitHub: verify the target PR, comment-only, one review with inline findings |
