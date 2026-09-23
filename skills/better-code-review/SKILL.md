@@ -49,7 +49,7 @@ Go through each. Skip only what the diff genuinely does not touch, and say what 
 
 6. Go through "What to check" for everything the code pass did not cover. Don't economize: on anything beyond a small diff, dispatch read-only subagents in parallel, one per dimension, each with the diff and the project's guides, and merge what they return. Time spent here is cheaper than a bug in production.
 
-7. Write it up in two layers. One overall block: the verdict on intent, approach, and architecture, plus anything with no single line to sit on. Then inline comments on the exact lines or hunks for everything that does. Group related nits into one comment so the author is not buried. Every finding: severity, reason, suggested change. Plain words, short sentences, no filler, like a developer would write it. End with the dimensions you skipped and why.
+7. Write it up in two layers. One overall block, in this order: the verdict in one line (merge, merge after fixes, or rework, and what blocks it); the judgment on intent, approach, and architecture; anything with no single line to sit on; the dimensions you skipped and why. Then inline comments on the exact lines or hunks for every finding that has one. Group related nits into one comment so the author is not buried. Every finding: severity, reason, suggested change. Plain words, short sentences, no filler, like a developer would write it.
 
 ## Severity Markers
 
