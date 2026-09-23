@@ -30,8 +30,9 @@ Create a pull request for the current branch:
      - what came out of it, briefly
      - how to test it, if there is a way (the project's verify command, manual steps)
    - Write like a developer, not a bot: plain words, short sentences, no filler, no restating the diff.
+   - Write for a reviewer who has only the PR: the diff, the repo, and links they can open. Name every change by what it does in the code. When the work came from something only you can see (a local plan, a spec file that isn't committed, this conversation), say what that part does in plain words: "adds retry to the upload client", not "Part 2 of the plan" or "option B we agreed on".
 
-7. Push the branch if not already pushed:
+7. Push the branch if not already pushed.
 
 8. Create the PR.
 
