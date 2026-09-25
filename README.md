@@ -46,7 +46,7 @@ Skills trigger on their own when a request matches, or explicitly as `/mikit:<na
 | `handoff` | Writes a handoff file so a fresh session can resume the task with zero context |
 | `learn-project` | Prints the layout and reads the project's instructions, docs, and task runner so a session starts with full context |
 | `respond-review` | Triages unresolved PR review comments, fixes what is valid, declines what is not, and replies to each |
-| `work` | Takes a task from an issue or a description to a plan, local changes for your review, or an open PR, checking in with you or fully on its own |
+| `cook` | Takes a task from an issue or a description to a plan, local changes for your review, or an open PR, checking in with you or fully on its own |
 
 ## Conventions
 
