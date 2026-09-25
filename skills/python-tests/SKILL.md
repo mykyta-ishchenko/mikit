@@ -5,7 +5,7 @@ description: Use when writing or reviewing Python tests: "write tests for this",
 
 # Python Tests
 
-Every change ships with tests. The questions are which tests, and whether they test the right thing.
+Every behavior change ships with tests. The questions are which tests, and whether they test the right thing.
 
 ## What to test
 
@@ -21,6 +21,8 @@ Test **your logic**, not Python and not third-party libraries:
 | Error wrapping (a domain error raised from a driver error) | That a mock returns what you told it to return |
 
 Parametrize repetitive tests. Don't write N identical tests when one `@pytest.mark.parametrize` covers them all.
+
+But not everything needs a test. A test earns its place only if it would fail when your logic breaks. One that tests nothing real is rejected: don't write it, propose deleting it in a review, and decline it when a reviewer asks for it.
 
 ## Test types
 
@@ -78,7 +80,7 @@ assert actual == expected
 ## Reviewing
 
 1. Find the test files changed on the branch (diff against the default branch).
-2. For every changed source file, look for the matching test change. Behavior that was added or changed without a test is a finding, not a note.
+2. For every changed source file, look for the matching test change. Behavior that was added or changed without a test is a finding, not a note. So is a test that tests nothing real: propose deleting it.
 3. Check the changed tests against every section above, then against the project's own testing conventions where it has them.
 4. Report each finding as file and line, severity, and what to change.
 

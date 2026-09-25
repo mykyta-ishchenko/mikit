@@ -49,6 +49,10 @@ go-ahead to commit, push, and open the PR.
 
 5. Local and PR: if the current branch doesn't match the task, create one from the latest default
    branch following the project's branch naming.
+    - Autonomous PR: the result lands in a PR, not in the user's checkout, so isolate freely. Work
+      in a separate git worktree (the harness's worktree support, or
+      `superpowers:using-git-worktrees` if installed), and hand independent plan steps to subagents
+      where the harness has them.
 
 6. Plan: concrete steps, what changes and why, which tests are affected. For anything beyond a
    handful of steps, use `superpowers:writing-plans` if installed. Check in: show it and confirm.
