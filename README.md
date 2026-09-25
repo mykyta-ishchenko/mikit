@@ -35,18 +35,18 @@ Skills trigger on their own when a request matches, or explicitly as `/mikit:<na
 |---|---|
 | `ai-security` | Reviews code that touches an LLM for prompt injection, data exfiltration, unsafe output handling, and auth bypass |
 | `better-code-review` | Runs a full PR review: project context, previous rounds, code, tests, security, with severity-marked comments |
+| `better-docs` | How to write, update, and review documentation that survives refactoring |
 | `changelog` | Adds Keep a Changelog entries under Unreleased, folding fixes to unreleased work into the original entry |
 | `clip` | Copies one command, query, or snippet from the conversation to the system clipboard |
 | `create-pr` | Drafts a pull request from the branch, using the repo's template if it has one, and opens it after you confirm |
 | `create-task` | Files a well-formed issue in the project's tracker from what was actually discussed, after you confirm the draft |
-| `docs` | How to write, update, and review documentation that survives refactoring |
 | `github-review-tutorial` | Rules for posting a PR review on GitHub: verify the target PR, comment-only, one review with inline findings |
 | `python-tests` | How to write and review Python tests: what to test, test types, mocking, structure, organization |
-| `rebase` | Rebases the current branch onto the latest default branch, carrying uncommitted changes along |
 | `reflect` | Reviews the session for mistakes and undocumented conventions, then proposes edits to the project's instructions |
 | `handoff` | Writes a handoff file so a fresh session can resume the task with zero context |
 | `learn-project` | Prints the layout and reads the project's instructions, docs, and task runner so a session starts with full context |
 | `respond-review` | Triages unresolved PR review comments, fixes what is valid, declines what is not, and replies to each |
+| `work` | Takes a task from an issue or a description to a plan, local changes for your review, or an open PR, checking in with you or fully on its own |
 
 ## Conventions
 
