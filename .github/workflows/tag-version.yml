@@ -5,17 +5,29 @@ on:
     branches: [main]
     paths: [.claude-plugin/plugin.json]
 
-permissions:
-  contents: write
+concurrency:
+  group: tag-version
+  cancel-in-progress: false
+
+permissions: {}
 
 jobs:
   tag:
-    runs-on: ubuntu-latest
+    name: Tag version
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@v7
-      - name: Tag the commit with its version unless already tagged
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        timeout-minutes: 2
+
+      - name: Create and push version tag
+        timeout-minutes: 2
+        shell: bash
         run: |
-          tag="v$(jq -r .version .claude-plugin/plugin.json)"
+          tag="v$(jq -er .version .claude-plugin/plugin.json)"
           if git ls-remote --exit-code --tags origin "refs/tags/$tag" > /dev/null; then
             echo "$tag already exists"
           else
