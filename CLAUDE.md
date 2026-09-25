@@ -9,6 +9,7 @@ This repo is `mikit`, a personal Claude Code plugin published as its own single-
 - `skills/<name>/SKILL.md`: one skill per directory
 - `README.md`: install instructions and the skills table
 - `.github/workflows/tag-version.yml`: tags `v<version>` on `main` whenever `version` changes
+- `.github/renovate.json`: Renovate keeps the pinned action SHAs current and automerges the updates
 
 ## Skill rules
 
