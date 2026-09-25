@@ -42,7 +42,6 @@ Skills trigger on their own when a request matches, or explicitly as `/mikit:<na
 | `create-task` | Files a well-formed issue in the project's tracker from what was actually discussed, after you confirm the draft |
 | `github-review-tutorial` | Rules for posting a PR review on GitHub: verify the target PR, comment-only, one review with inline findings |
 | `python-tests` | How to write and review Python tests: what to test, test types, mocking, structure, organization |
-| `rebase` | Rebases the current branch onto the latest default branch, carrying uncommitted changes along |
 | `reflect` | Reviews the session for mistakes and undocumented conventions, then proposes edits to the project's instructions |
 | `handoff` | Writes a handoff file so a fresh session can resume the task with zero context |
 | `learn-project` | Prints the layout and reads the project's instructions, docs, and task runner so a session starts with full context |
