@@ -59,7 +59,7 @@ go-ahead to commit, push, and open the PR.
     - PR: commit each logical step, following the project's commit conventions.
 
 8. Verify per the project's rules: verify command green, docs updated where the change warrants it
-   (`mikit:docs`), changelog entry if the project keeps one (`mikit:changelog`).
+   (`mikit:better-docs`), changelog entry if the project keeps one (`mikit:changelog`).
 
 9. Autonomous: review your own diff with `mikit:better-code-review` and fix what it finds. Nobody
    has checked your decisions yet.

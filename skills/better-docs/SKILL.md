@@ -1,9 +1,9 @@
 ---
-name: docs
+name: better-docs
 description: Use when writing, updating, or reviewing project documentation: "update the docs", "document this", "review the docs", "does this need a doc?".
 ---
 
-# Docs
+# Better Docs
 
 A good doc survives routine code changes. Renaming a class, moving a method, refactoring a function should not require touching it. If it does, the doc is bound too tightly to the implementation.
 
