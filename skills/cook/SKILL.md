@@ -1,5 +1,5 @@
 ---
-name: work
+name: cook
 description: Take a task, an issue or a description, to a plan, local changes, or an open PR, in the working mode you pick at the start.
 disable-model-invocation: true
 argument-hint: "[issue id or URL | description]"
