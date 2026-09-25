@@ -8,6 +8,8 @@ This repo is `mikit`, a personal Claude Code plugin published as its own single-
 - `.claude-plugin/marketplace.json`: marketplace manifest; its plugin entry mirrors the plugin description
 - `skills/<name>/SKILL.md`: one skill per directory
 - `README.md`: install instructions and the skills table
+- `.github/workflows/tag-version.yml`: tags `v<version>` on `main` whenever `version` changes
+- `.github/dependabot.yml`: Dependabot opens PRs that keep the pinned action SHAs current
 
 ## Skill rules
 
@@ -22,7 +24,7 @@ This repo is `mikit`, a personal Claude Code plugin published as its own single-
 Installed copies refresh only when `version` changes, so every change ships with a bump:
 
 1. Edit the skill or manifest.
-2. Bump `version` in `plugin.json`: minor when a skill is added or removed, patch otherwise.
+2. Bump `version` in `plugin.json`: minor when a skill is added or removed, patch otherwise. When the bump lands on `main`, CI tags that commit `v<version>`; don't tag by hand.
 3. If the plugin description changed, mirror it in `marketplace.json`.
 4. If a skill was added, removed, or renamed, update the table in `README.md`.
 5. `claude plugin validate .claude-plugin/plugin.json` and `claude plugin validate .claude-plugin/marketplace.json` must pass.
