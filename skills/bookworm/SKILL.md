@@ -1,6 +1,6 @@
 ---
 name: bookworm
-description: Use when designing architecture or code structure, drawing module, service, or API boundaries, modeling data, or choosing between approaches: "how should we structure this", "should we split this out", "which approach is better".
+description: Use when designing architecture, code structure, APIs, or data models: "how should we structure this", "should we split this out", "which approach is better".
 ---
 
 # Bookworm
