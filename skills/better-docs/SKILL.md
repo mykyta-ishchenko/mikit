@@ -56,6 +56,16 @@ If the code or tests already say it, don't.
 - **A wall of code blocks.** The reader is reading code with prose comments; that belongs in the code.
 - **Two docs on the same topic.** They drift apart. Pick one canonical source and link from the other.
 
+## Docstrings and comments
+
+Docstrings, or whatever doc comments the language uses, follow the same rule at a smaller scale: the code says what, the doc says why.
+
+- **No docstring on obvious code.** When the name and types make it clear, it adds nothing.
+- **A docstring earns its place** when behavior is non-obvious, has side effects that matter, or the why isn't visible in the code.
+- **One line** unless one line genuinely can't carry the why.
+- **No module or file docstring** unless the purpose is unclear from its name and contents. Test files almost never need one.
+- **Inline comments are a last resort.** A non-obvious why goes into a docstring: the function's own for logic in its body, the constant's own for a constant. A comment stays only when no docstring can carry it, and it explains why, never what; needing to explain what means the code should be refactored. Tool directives (lint suppressions, type-checker ignores with their reason) are not prose comments.
+
 ## Maintenance
 
 - Update the doc in the same PR as the change it describes.
@@ -72,7 +82,7 @@ If the code or tests already say it, don't.
 
 ## Reviewing
 
-1. Find the documentation files changed on the branch: guides, module docs, READMEs.
+1. Find the documentation changed on the branch: guides, module docs, READMEs, and the docstrings and comments in changed code.
 2. Check each against every section above, then against the project's own documentation conventions where it has them.
 3. Also check the reverse: does the code change on this branch leave any existing doc stale? A doc that nobody touched is the one most likely to lie now.
 4. Report each finding as file and line, severity, and what to change.
