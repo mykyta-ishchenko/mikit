@@ -41,7 +41,7 @@ go-ahead to commit, push, and open the PR.
 3. Explore the affected code: current structure, patterns, dependencies, tests. Know what the change
    touches before deciding how.
 
-4. Design.
+4. Design. When approaches compete, weigh them with `mikit:bookworm`.
     - Check in: if the task is ambiguous, several approaches compete, or it touches unfamiliar or
       shared code, run a design session with the user (`superpowers:brainstorming` if installed).
       Otherwise state the approach in a few sentences and confirm it.
