@@ -64,7 +64,10 @@ Docstrings, or whatever doc comments the language uses, follow the same rule at 
 - **A docstring earns its place** when behavior is non-obvious, has side effects that matter, or the why isn't visible in the code.
 - **One line** unless one line genuinely can't carry the why.
 - **No module or file docstring** unless the purpose is unclear from its name and contents. Test files almost never need one.
-- **Inline comments are a last resort.** A non-obvious why goes into a docstring: the function's own for logic in its body, the constant's own for a constant. A comment stays only when no docstring can carry it, and it explains why, never what; needing to explain what means the code should be refactored. Tool directives (lint suppressions, type-checker ignores with their reason) are not prose comments.
+- **Inline comments are a last resort.** A non-obvious why goes into a docstring: the function's own for logic in its body, the constant's own for a constant.
+- **A comment stays only when no docstring can carry it.** It explains why, never what. Needing to explain what means the code should be refactored.
+- **Tool directives are not prose comments.** Lint suppressions and type-checker ignores stay, with their reason.
+- **Tagged markers are allowed** (TODO, FIXME, NOTE, and the like) where something is to be changed or added later.
 
 ## Maintenance
 
