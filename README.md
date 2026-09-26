@@ -36,6 +36,7 @@ Skills trigger on their own when a request matches, or explicitly as `/mikit:<na
 | `ai-security` | Reviews code that touches an LLM for prompt injection, data exfiltration, unsafe output handling, and auth bypass |
 | `better-code-review` | Runs a full PR review: project context, previous rounds, code, tests, security, with severity-marked comments |
 | `better-docs` | How to write, update, and review documentation that survives refactoring |
+| `bookworm` | Grounds each design decision in a named principle from the canonical literature, and says where the sources disagree |
 | `changelog` | Adds Keep a Changelog entries under Unreleased, folding fixes to unreleased work into the original entry |
 | `clip` | Copies one command, query, or snippet from the conversation to the system clipboard |
 | `create-pr` | Drafts a pull request from the branch, using the repo's template if it has one, and opens it after you confirm |

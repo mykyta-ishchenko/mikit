@@ -22,7 +22,7 @@ If the `code-review` skill's rules conflict with this one, this one wins.
 Go through each. Skip only what the diff genuinely does not touch, and say what you skipped.
 
 - **Intent.** Does it do what the task asked, all of it, and nothing the task did not ask for?
-- **Approach.** Is the design right for this codebase? Would a simpler structure, an existing abstraction, or a different split of responsibilities do the job?
+- **Approach.** Is the design right for this codebase? Would a simpler structure, an existing abstraction, or a different split of responsibilities do the job? When you propose a different design, argue it with `mikit:bookworm`.
 - **Architecture.** Are the pieces in the right layers and modules? Any new coupling, cycles, or leaked boundaries?
 - **Correctness.** Edge cases, error paths, concurrency, resources. The `code-review` skill does most of this; you look for what it missed.
 - **Performance.** Anything that grows with data or traffic: queries in loops and N+1, lazy-loaded relations inside loops, sequential awaits that could run concurrently, blocking calls in async code, a new HTTP client per request, fetching every column when a few are needed, the same query repeated within one request, a large result set loaded into memory instead of streamed, missing indexes.
