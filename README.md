@@ -42,6 +42,7 @@ Skills trigger on their own when a request matches, or explicitly as `/mikit:<na
 | `create-pr` | Drafts a pull request from the branch, using the repo's template if it has one, and opens it after you confirm |
 | `create-task` | Files a well-formed issue in the project's tracker from what was actually discussed, after you confirm the draft |
 | `github-review-tutorial` | Rules for posting a PR review on GitHub: verify the target PR, comment-only, one review with inline findings |
+| `im-stupid-today` | For slow days: recommends one option with the reason and lets you decide, checks what you claim, answers short and plain with examples, and shows flows as diagrams or step-by-step pages |
 | `python-tests` | How to write and review Python tests: what to test, test types, mocking, structure, organization |
 | `reflect` | Reviews the session for mistakes and undocumented conventions, then proposes edits to the project's instructions |
 | `handoff` | Writes a handoff file so a fresh session can resume the task with zero context |
