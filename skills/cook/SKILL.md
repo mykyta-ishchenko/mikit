@@ -1,6 +1,6 @@
 ---
 name: cook
-description: Use when the user gives an issue or a description to carry to a plan, local changes, or a PR: "cook this", "take this issue".
+description: Use when the user gives a task, an issue or a description to carry to a plan, local changes, or a PR: "cook this", "take this issue".
 argument-hint: "[issue id or URL | description]"
 ---
 
