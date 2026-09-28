@@ -1,6 +1,6 @@
 ---
 name: typescript-tests
-description: Use when writing or reviewing TypeScript, JavaScript, or React unit and component tests: "write tests for this component", "review these Vitest tests".
+description: Use when writing or reviewing TypeScript, JavaScript, React, or Astro unit and component tests: "write tests for this component", "review these Vitest tests".
 ---
 
 # TypeScript Tests
@@ -26,6 +26,9 @@ Parametrize with `it.each`.
 - Everything else: inject dependencies through parameters or constructors.
 - `vi.mock` only for a third-party module the code imports directly with no network to intercept:
   analytics, feature flags, error reporting.
+- A framework's virtual modules (`astro:env/client`, SvelteKit's `$env/static/public`) are not that
+  exception. Give the function a parameter that defaults to the imported value and pass each case
+  in the test: no `vi.mock`, `vi.doMock`, `vi.stubEnv`, or re-import after `vi.resetModules`.
 - Type every double against the real signature: `vi.fn<typeof fetchCart>()`, or an object that
   `satisfies` the interface.
 
@@ -38,6 +41,12 @@ Parametrize with `it.each`.
 - Assert what the user sees and what the server received, never component state, props, or class
   names.
 - No snapshots in place of assertions.
+
+## Astro
+
+An adapter that runs the app in another runtime, such as Cloudflare's workerd, stops Vitest at
+startup with `module is not defined`. The inline config argument of `getViteConfig()` can't remove
+it: leave the adapter out of the Astro config when `process.env.VITEST` is set.
 
 ## Organization
 
