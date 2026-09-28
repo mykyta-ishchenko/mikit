@@ -19,7 +19,8 @@ Follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) categories:
 ## Steps
 
 1. Read `CHANGELOG.md`. If the project has none, ask before creating one.
-2. Determine what changed — use the diff against the default branch, recent commits, or ask the user.
+2. Determine what changed — use the diff against the default branch, recent commits, or ask the
+   user.
 3. Add entries under `## [Unreleased]`, grouped by category.
 4. Each entry is a single line starting with `- ` — concise, user-facing language.
 5. Only add categories that have entries — don't create empty sections.
@@ -27,7 +28,8 @@ Follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) categories:
 
 ## Rules
 
-- Write from the user's perspective, not the developer's (e.g., "Add push notifications" not "Add PushNotificationService class")
+- Write from the user's perspective, not the developer's (e.g., "Add push notifications" not "Add
+  PushNotificationService class")
 - One line per change, no sub-bullets
 - Use imperative mood ("Add", "Fix", "Remove", not "Added", "Fixed", "Removed")
 - Don't include internal refactors or code cleanup unless they affect behavior
@@ -35,13 +37,20 @@ Follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) categories:
 
 ## Unreleased vs released changes
 
-The `[Unreleased]` section describes the **difference between the last released version and the current state** — not a commit log.
+The `[Unreleased]` section describes the **difference between the last released version and the
+current state** — not a commit log.
 
-Before adding an entry, check what's already in `[Unreleased]` and what's in previous versioned sections:
+Before adding an entry, check what's already in `[Unreleased]` and what's in previous versioned
+sections:
 
-- **Fix for an unreleased feature** — don't add a "Fixed" entry. The feature in `[Unreleased]` was never released broken, so just keep the original "Added" entry. If needed, update its wording.
-- **Fix for a released feature** — add a "Fixed" entry, because users of the released version experienced the bug.
-- **Improvement to an unreleased feature** — update the existing "Added" entry instead of adding a separate "Changed".
-- **Removal of an unreleased feature** — remove the "Added" entry entirely. No "Removed" needed since it was never released.
+- **Fix for an unreleased feature** — don't add a "Fixed" entry. The feature in `[Unreleased]` was
+  never released broken, so just keep the original "Added" entry. If needed, update its wording.
+- **Fix for a released feature** — add a "Fixed" entry, because users of the released version
+  experienced the bug.
+- **Improvement to an unreleased feature** — update the existing "Added" entry instead of adding a
+  separate "Changed".
+- **Removal of an unreleased feature** — remove the "Added" entry entirely. No "Removed" needed
+  since it was never released.
 
-The same logic applies to all categories: ask "would this matter to someone upgrading from the last release?" If not, fold it into the existing unreleased entry or skip it.
+The same logic applies to all categories: ask "would this matter to someone upgrading from the last
+release?" If not, fold it into the existing unreleased entry or skip it.
