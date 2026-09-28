@@ -5,7 +5,8 @@ description: Use when reviewing code that builds prompts, calls a model API, han
 
 # LLM Security Review
 
-Review code changes for LLM-specific security vulnerabilities. Focus on real exploitability, not theoretical risks.
+Review code changes for LLM-specific security vulnerabilities. Focus on real exploitability, not
+theoretical risks.
 
 ## When to Use
 
@@ -48,7 +49,8 @@ Code that:
 
 ## Methodology
 
-1. **Trace data flow** — follow user input from entry point through prompt construction to LLM API call
+1. **Trace data flow** — follow user input from entry point through prompt construction to LLM API
+   call
 2. **Check boundaries** — verify system/user message separation, input sanitization
 3. **Review output handling** — how LLM responses are processed, stored, displayed
 4. **Check tool use** — if LLM has tools/functions, verify they respect auth boundaries
@@ -56,7 +58,8 @@ Code that:
 
 ## Output Format
 
-Same as `/security-review` — markdown with file, line, severity, description, exploit scenario, recommendation.
+Same as `/security-review` — markdown with file, line, severity, description, exploit scenario,
+recommendation.
 
 ## Exclusions
 

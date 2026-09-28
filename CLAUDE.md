@@ -51,6 +51,12 @@ Installed copies refresh only when `version` changes, so every change ships with
 including projects that declared it. Re-register before touching project settings, and check them
 afterwards.
 
+## Formatting
+
+- Markdown prose wraps at 100 columns; a wrapped list item continues under its text.
+- Tables have padded, aligned columns and `|---|` separators, and are never wrapped.
+- Frontmatter and code blocks stay as written.
+
 ## Commits
 
 - Only commit when asked

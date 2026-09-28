@@ -8,7 +8,8 @@ Reflect on the current session and extract actionable improvements for project d
 
 ## Steps
 
-1. Review the full conversation history — what was asked, what went wrong, what was corrected, what patterns emerged.
+1. Review the full conversation history — what was asked, what went wrong, what was corrected, what
+   patterns emerged.
 
 2. Identify learnings in two categories:
 
@@ -24,7 +25,8 @@ Reflect on the current session and extract actionable improvements for project d
 
 3. For each learning, decide where it belongs:
    - `CLAUDE.md` — project-wide rules and conventions
-   - The project's guides — whichever files `CLAUDE.md` references for architecture, conventions, testing, and the like, if the project has them
+   - The project's guides — whichever files `CLAUDE.md` references for architecture, conventions,
+     testing, and the like, if the project has them
    - Memory — user-specific preferences that don't belong in the repo
 
 4. Present the list to the user:
