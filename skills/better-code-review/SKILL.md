@@ -97,6 +97,10 @@ Go through each. Skip only what the diff genuinely does not touch, and say what 
    with the diff and the project's guides, and merge what they return. Time spent here is cheaper
    than a bug in production.
 
+   Run every subagent in the foreground (`run_in_background: false`), including any the
+   `code-review` skill launches, and write nothing until all of them have returned. A headless run
+   ends the moment you stop to wait for a background agent, and the review is never posted.
+
 7. Write it up in two layers. One overall block, in this order: the verdict in one line (merge,
    merge after fixes, or rework, and what blocks it); the judgment on intent, approach, and
    architecture; anything with no single line to sit on; the dimensions you skipped and why. Then
