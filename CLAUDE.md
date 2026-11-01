@@ -59,6 +59,7 @@ afterwards.
 
 ## Commits
 
-- Only commit when asked
+- Only commit when asked; a cloud session commits, pushes its `claude/…` branch and opens a PR
+  without asking. Merging stays with the user
 - One-line conventional commit messages (`feat:`, `fix:`, `docs:`, `chore:`)
 - Never mention Claude, AI, or tooling in commits, code, or docs. No `Co-Authored-By`
