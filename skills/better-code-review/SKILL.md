@@ -22,6 +22,9 @@ If the `code-review` skill's rules conflict with this one, this one wins.
   Will they understand why, or only what?
 - **Every finding carries a reason and a way out.** "This is wrong" without why and without an
   alternative is noise.
+- **Judge by the base branch's rules.** The project's instructions and guides as they stand on the
+  base branch decide. A change can't pass by editing the rules it is judged by: when it changes
+  them, put that at the top of the summary for the owner to approve.
 - **Separate defect from taste.** A defect is flagged as a defect. Taste is offered once, as an
   option, and let go.
 
@@ -30,6 +33,9 @@ If the `code-review` skill's rules conflict with this one, this one wins.
 Go through each. Skip only what the diff genuinely does not touch, and say what you skipped.
 
 - **Intent.** Does it do what the task asked, all of it, and nothing the task did not ask for?
+- **Verification.** Does the description say what was actually run on this commit and what it
+  showed, and what could not be run? A behavior change with no sign it was ever run, or a claim the
+  CI results contradict, is a finding.
 - **Approach.** Is the design right for this codebase? Would a simpler structure, an existing
   abstraction, or a different split of responsibilities do the job? When you propose a different
   design, argue it with `mikit:bookworm`.
