@@ -77,4 +77,9 @@ of scope for this PR).
    - Easy to read: plain words, short sentences, one point per reply. The reviewer should get it on
      the first pass
 
-10. After all replies, give the user a short summary of what was fixed and what was declined.
+10. For each fixed finding the project's instructions or guides should have prevented, or one you
+    have seen raised before, add or sharpen the rule there, in the same branch: a miss that comes
+    back twice is a missing rule. Keep the rule one line, checkable from a diff.
+
+11. After all replies, give the user a short summary of what was fixed, what was declined, and
+    which rules were added.

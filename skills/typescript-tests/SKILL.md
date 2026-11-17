@@ -16,7 +16,8 @@ skill adds TypeScript, Vitest or Jest, and React Testing Library on top.
 | A type guard or parser that runs at runtime                         | What the type checker already enforces                               |
 | What a component renders in each state: loading, empty, error, data | That React re-renders, or that a prop reaches a child                |
 
-Parametrize with `it.each`.
+Parametrize with `it.each`. Write property tests with fast-check, with a fixed seed in CI so a run
+can be repeated.
 
 ## Mocking
 

@@ -18,7 +18,8 @@ skill adds Python and pytest on top.
 | Decorator behavior                              | `isinstance(x, T)` when the type is obvious from the constructor |
 
 Parametrize with `@pytest.mark.parametrize`. Mark integration and end-to-end tests with pytest
-markers.
+markers. Write property tests with Hypothesis, with bounded strategies and a fixed profile in CI so
+a run can be repeated.
 
 ## Mocking
 

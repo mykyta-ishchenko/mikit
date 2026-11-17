@@ -41,7 +41,23 @@ and decline it when a reviewer asks for it.
   after itself. Required environment is configured up front; the suite hard-fails when it isn't
   rather than silently skipping.
 
+- **Property**: a statement that must hold for every input, checked against many generated ones.
+  Their inputs are not picked by whoever wrote the code, so they find the cases the author never
+  thought of. Worth it where the property is real: a round-trip (decode of encode, parse of
+  format, load of save returns the original), an invariant (a balance never goes negative), an
+  idempotent step (a normalization, migration, retry or event handler run twice equals once), an
+  equivalence (the fast version matches the plain correct one).
+
 Tag integration and end-to-end tests so they can be selected and excluded.
+
+## Failing and flaky tests
+
+- A red test is fixed at its cause, never turned green around it: no skip, no sleep or longer
+  timeout over a race, no re-running the job until it passes.
+- A test that fails only now and then is a bug in the test or in the code. Find the cause and fix
+  it. If the cause can't be found, delete the test and say why in the commit: a test nobody trusts
+  teaches everyone to ignore red.
+- After three rounds of fixes on the same failure, stop and bring in the user with what was tried.
 
 ## Test doubles
 

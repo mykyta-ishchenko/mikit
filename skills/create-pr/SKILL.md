@@ -24,7 +24,7 @@ Create a pull request for the current branch:
    - `git log --oneline <default>..HEAD` — commits on this branch
    - `git diff <default>...HEAD --stat` — files changed
    - `.github/pull_request_template.md` if the repo has one — use it verbatim as the body skeleton;
-     otherwise use `## Summary` and `## Test plan`
+     otherwise use `## Summary` and `## Verification`
 
 5. Follow the project's git and PR conventions: `CONTRIBUTING.md`, a git or PR guide in the docs,
    whatever the repo has.
@@ -33,12 +33,13 @@ Create a pull request for the current branch:
    - **Title**: short (under 70 chars), conventional-commit style, matches the nature of the work on
      the branch (not just the latest commit)
    - **Body**: use the template's sections if there is one, otherwise `## Summary` and
-     `## Test plan`. Whatever the sections, cover:
+     `## Verification`. Whatever the sections, cover:
      - the task link or number, if one is in context (conversation, branch name, commits); if none,
        leave the template's placeholder intact
      - what the task was and what we wanted to achieve, in a sentence or two
      - what came out of it, briefly
-     - how to test it, if there is a way (the project's verify command, manual steps)
+     - how it was verified: what was actually run on the head commit and what it showed (checks,
+       tests, the change seen running), and what could not be run and why
    - Write like a developer, not a bot: plain words, short sentences, no filler, no restating the
      diff.
    - Write for a reviewer who has only the PR: the diff, the repo, and links they can open. Name
