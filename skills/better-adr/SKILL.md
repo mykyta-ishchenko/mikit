@@ -9,7 +9,7 @@ An ADR captures one decision: the context that forced it, the options weighed, t
 it costs. Each decision gets two outputs:
 
 1. **The record**: the ADR text, where the project keeps its decision records. This is the source
-   of truth.
+   of truth, and never an artifact.
 2. **The readable page**: a one-page HTML artifact that lets someone who will never read the record
    understand the decision in under a minute. It links back to the record.
 
@@ -112,6 +112,8 @@ picture. Everything else supports that.
   `off`).
 - Size every text against its box (about 6.5px per character at 12px). Widen the box or shorten the
   label rather than letting text spill over.
+- Keep the example's fit script. Some apps render the fonts wider than your preview, and the script
+  grows chips to their text and squeezes any label that would still leave its box.
 
 **Copy.** Plain English, short sentences, at most five items per list. Name things the way the
 reader knows them.

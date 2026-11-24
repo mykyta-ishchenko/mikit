@@ -369,6 +369,50 @@ footer { font-size: 13px; color: var(--subtle); border-top: 1px solid var(--line
 </main>
 
 <script>
+/* Fit diagram text once the web fonts load: some apps render fonts wider than where the page was drawn. A chip grows to its text and moves the chips after it on its row; text that would still leave its box is squeezed to fit. */
+(function () {
+  var svg = document.querySelector("#diagram svg");
+  if (!svg) return;
+  function num(el, a) { return +el.getAttribute(a); }
+  function fit() {
+    var boxes = Array.prototype.slice.call(svg.querySelectorAll("rect.node, rect.node-hot, rect.off"));
+    function roomFrom(x, y) {
+      var b = boxes.filter(function (b) {
+        return x >= num(b, "x") && x <= num(b, "x") + num(b, "width") && y >= num(b, "y") && y <= num(b, "y") + num(b, "height");
+      })[0];
+      return b ? num(b, "x") + num(b, "width") - 10 - x : Infinity;
+    }
+    function squeeze(t, w) { t.setAttribute("textLength", w); t.setAttribute("lengthAdjust", "spacingAndGlyphs"); }
+    var rows = {};
+    svg.querySelectorAll("rect[class^='chip']").forEach(function (r) {
+      var t = r.nextElementSibling;
+      if (t && t.tagName === "text") (rows[r.getAttribute("y")] = rows[r.getAttribute("y")] || []).push([r, t]);
+    });
+    Object.keys(rows).forEach(function (k) {
+      var shift = 0;
+      rows[k].sort(function (a, b) { return num(a[0], "x") - num(b[0], "x"); }).forEach(function (p) {
+        var r = p[0], t = p[1];
+        if (shift) { r.setAttribute("x", num(r, "x") + shift); t.setAttribute("x", num(t, "x") + shift); }
+        var pad = num(t, "x") - num(r, "x");
+        var need = t.getComputedTextLength() + pad * 2;
+        var max = roomFrom(num(r, "x"), num(r, "y") + 1);
+        var w = Math.min(Math.max(need, num(r, "width")), max);
+        if (w > num(r, "width")) shift += w - num(r, "width");
+        r.setAttribute("width", w);
+        if (need > w) squeeze(t, w - pad * 2);
+      });
+    });
+    svg.querySelectorAll("text").forEach(function (t) {
+      if (t.hasAttribute("textLength") || (t.previousElementSibling && /^chip/.test(t.previousElementSibling.getAttribute("class") || ""))) return;
+      var room = roomFrom(num(t, "x"), num(t, "y"));
+      if (t.getComputedTextLength() > room) squeeze(t, room);
+    });
+  }
+  (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(fit);
+})();
+</script>
+
+<script>
 (function () {
   var d = document.getElementById("diagram");
   if (!d) return;
