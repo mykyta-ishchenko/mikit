@@ -1,97 +1,145 @@
 ---
 name: better-adr
-description: Use when writing, updating, or reviewing a decision record (ADR): "write an ADR", "record this decision", "document why we chose X", "review this ADR".
+description: Use when recording, drafting, reworking, or explaining an architecture or design decision: "write an ADR", "record this decision", "compare the options and pick one", "make a readable page for this ADR".
 ---
 
 # Better ADR
 
-A decision record answers three questions in under a minute: what did we decide, why, and what did
-we turn down. Everything else is noise that hides those answers.
+An ADR captures one decision: the context that forced it, the options weighed, the choice, and what
+it costs. Each decision gets two outputs:
+
+1. **The record**: the ADR text, where the project keeps its decision records. This is the source
+   of truth.
+2. **The readable page**: a one-page HTML artifact that lets someone who will never read the record
+   understand the decision in under a minute. It links back to the record.
+
+Worked examples of both are bundled: `references/example-adr.md` (the record) and
+`assets/example-page.html` (the page). Read both before writing; they show the target shape better
+than any rule here.
+
+Use it even when the user only describes a decision ("we'll send pushes ourselves") without saying
+"ADR".
 
 ## Where it goes
 
-1. Follow the project's convention for decision records: their folder, file names, numbering, and
-   how a changed decision is handled. Look in its docs, `CLAUDE.md`, and existing records.
-2. If it has none, propose `docs/decisions/NNNN-<decision-in-kebab-case>.md` and confirm first.
-3. One decision per file. A file that holds several decisions gets split, not extended.
+Follow the project's conventions: where records live (a repo folder, a docs tool), how files are
+named, which tracker the ticket ids come from, and the brand the page uses. Look in its docs,
+`CLAUDE.md`, and existing records. If it has no place for ADRs, propose one and confirm first.
 
-## Shape
+## Workflow
 
-```markdown
-# <The decision as one sentence>
+1. **Collect the decision.** What was decided, which options were weighed and why each lost, what
+   it costs, what the reader must do next. Pull what you can from the conversation, linked docs,
+   tickets and code; ask the user only for what is missing. Verify every fact you state (file
+   paths, product features, limits) against its source and note the date you checked it. Never
+   invent a reason: if nobody recorded one, ask.
+2. **Draft the record** in the format below and show it to the user. Publish it only after they say
+   so. Publishing is outward-facing, and the team reads it.
+3. **Build the readable page** from `assets/example-page.html`: keep its CSS, layout and component
+   classes, and replace the content and the diagram. Publish it as an HTML artifact and link the
+   record in its footer.
+4. **Iterate.** The user usually changes the decision several times while reviewing. Apply each
+   change to both outputs in the same turn so they never disagree. Before you overwrite a published
+   record, fetch the live one; someone may have edited it.
+5. **After acceptance the record is immutable.** A later change of mind is a new ADR that supersedes
+   the old one, never an edit. Only the old record's status changes, to point at the new one.
 
-Status: Accepted · <who decided> · <YYYY-MM-DD>
+## The record
 
-## Decision
+- **Title:** `YYYY-MM-DD Short title that states the decision`. Use the date the decision is
+  recorded. Example: `2026-10-18 Push goes straight to Apple: direct APNs, no OneSignal`. A file
+  name, where there is one, is the same in kebab case.
+- **Subtitle:** one sentence summarising the decision.
+- **Line breaks:** in a docs tool that turns every newline into a hard break, write one paragraph
+  per line. In a repository, follow its wrapping rule.
 
-One or two sentences: what we do now. A table when the decision is a set of values.
+Sections, in this order:
 
-## Why
+1. **TL;DR**: the decision in one paragraph, key nouns in bold.
+2. **Status**: `Proposed (date)`, `Accepted (date)` or `Superseded by <link> (date)`. Name the ADRs
+   it builds on or supersedes, and the ticket ids.
+3. **Context**: the concrete problem and the forces, as facts. Include the pieces that already
+   exist in the code, with paths and "checked <date>".
+4. **🪛 Decision drivers**: hard filters (F1, F2, …) that eliminate options, then tie-breakers (T1,
+   T2, …) that rank the survivors. Name the drivers before comparing options, or you end up
+   rationalising a favourite.
+5. **Options**: a driver × option matrix. Score every option on every driver with 🟢 / 🟡 / 🔴 plus
+   a few words of reason, and mark the chosen column ⭐. Below it, one line per option that lost:
+   `X, rejected: fails F1. <why>`. An option that is right later gets "deferred, not rejected".
+6. **Decision**: "Adopt X:" then one bold-led bullet per topic (Data, Process, Deploy, Not now…).
+   Then a Pros / Cons table, then one sentence on why it beat the runner-up.
+7. **Consequences**: **Harder / risks**, each as `**Risk:** what happens. → mitigation.`; then
+   **Mitigations & future**, which includes the one-time manual setup.
+8. **References**: primary sources, each dated ("checked 2026-11-16"). End with a link to the
+   readable page.
 
-- One reason per bullet. Two to four bullets.
+## The readable page
 
-## Rejected
+Its job: whoever opens it knows the decision from the first screen and sees how it works from one
+picture. Everything else supports that.
 
-| Option | Why not |
-|--------|---------|
-| ...    | ...     |
+**Order** (each section's `h2` carries a small mono tag with the ADR term):
 
-## Consequences
+1. A dark badge `ADR | YYYY-MM-DD`, and nothing else on that line.
+2. `h1`: the decision as a plain sentence with the key phrase in the accent colour.
+3. Lede: two or three sentences on who needs what, and what we do.
+4. Three short cards: the main wins.
+5. **Architecture**, "How it works": one paragraph, then one inline SVG diagram of the real
+   mechanism.
+6. **Scope**: two cards, "First version" and "Later" (dashed).
+7. **Options considered**, "Why this option": one row per option, the chosen one first and
+   highlighted, each with a one-line reason. No matrix; that stays in the record.
+8. **Consequences**, "What it costs": four cards in a 2×2 grid.
+9. **Next steps**: a numbered one-time setup list.
+10. Footer: links to the record and to the main design doc.
 
-- What each affected area has to do, and what gets harder.
+**Look.** Light only.
 
-## Revisit when
+- Use the project's brand: its colours and fonts go into the example's `:root` tokens. Without a
+  brand, keep the example's tokens.
+- A near-white background with a faint accent glow at the top and a dot grid that fades out.
+- White cards with hairline borders and a 10px radius, and no shadows.
+- The accent darkened enough to read as text on white. A bright brand colour is only a tint.
 
-- The condition that should reopen this decision. Optional.
+**The diagram.**
 
-## Links
+- Draw the components that really exist, inside a dashed frame for the system the decision is
+  about. Each node gets a tinted icon tile, a title and one muted line, and chips carry key values
+  (`every 15 min`, `kind + id only`).
+- Edges have arrowheads. An accent pulse runs along them three times and replays on hover.
+- A dashed "Kept out" row at the bottom shows what the decision keeps out of bounds.
+- Reuse the example's SVG classes (`node`, `node-hot`, `frame`, `tile`, `chip`, `edge`, `flow`,
+  `off`).
+- Size every text against its box (about 6.5px per character at 12px). Widen the box or shorten the
+  label rather than letting text spill over.
 
-- The issue, the PR, the state or doc a reader needs next. Optional.
-```
+**Copy.** Plain English, short sentences, at most five items per list. Name things the way the
+reader knows them.
 
-Status is one of `Proposed`, `Accepted`, `Replaced by <link>`, `Dropped`. Leave out an optional
-section rather than writing "none".
+### Rejected on the page (do not bring these back)
 
-## Rules
+Anything that competes with the decision for attention goes.
 
-- **The title is the decision.** "Offline entries keep the phone's time", not "Offline entries".
-  A reader who stops at the title knows what was decided.
-- **Who and when, once.** They live in the status line. No "(Name, date)" after every bullet.
-- **Current truth only.** The body says what holds now. Earlier values and reversals go in one
-  `History:` line at the end, or stay in git.
-- **One fact per bullet.** A bullet that needs a second sentence is two bullets. About 20 words is
-  the ceiling.
-- **Tables for comparisons.** Options against reasons, values per market, before against after.
-- **Why is required.** A decision with no reason can't be challenged or revisited. If nobody
-  recorded the reason, ask; don't invent one. If it stays unknown, write "not recorded".
-- **Rejected is required** when there were alternatives. That is the next reader's rediscovery
-  saved.
-- **Decision, not state.** Versions deployed, environments, task status, and "today it is…" go in
-  the project's state docs or tracker and are linked. They go stale within days; the decision does
-  not.
-- **No implementation detail.** Endpoints, file paths, class names, colors in hex, PR numbers in the
-  body rot first. Name the rule; link to where the detail lives. See `better-docs` if available.
-- **Plain words.** No hedging, no narrative of how the discussion went.
+- **Status anywhere on the page:** no "Proposed" pill, step tracker or milestone bar. Status
+  belongs in the record.
+- **An issue-tracker layout:** no labels cloud, counters, properties sidebar, history timeline,
+  "next actions" board per role, or avatars.
+- **Middle-dot separators (`·`):** they read as filler. Use separate elements, commas or "and".
+- **Time estimates:** none on the page, not even per step.
+- **People's names** in steps: describe the step, not who does it.
+- **A dark theme**, and a long "Architecture Decision Record" caption next to the badge.
+- **Em dashes:** not anywhere, in the page or in the record.
 
-## When a decision changes
+## Before you publish
 
-Follow the project's rule. Without one:
+- Is the decision clear from the first screen alone?
+- Do the record and the page say the same thing?
+- Is every fact verified and dated in the record, and is every reason one somebody actually gave?
+- Is the copy free of `·`, em dashes, names, statuses and time estimates?
+- Does the diagram text fit its boxes? Look at the page once before publishing if you can render
+  it.
 
-- **Replace:** write a new record, set the old one's status to `Replaced by <link>`, and leave its
-  body alone. Readers can still see why the old choice was made.
-- **Adjust** a detail that keeps the decision intact (a price, a limit): rewrite the record in place
-  and add the old value to its `History:` line.
+## Reviewing an ADR
 
-## Reviewing
-
-Check each record against:
-
-1. Can the title alone tell a reader what was decided?
-2. Is there exactly one decision in the file?
-3. Is the status line present, with who and when, and nowhere else repeated?
-4. Does Why give at least one real reason? Does Rejected list the alternatives?
-5. Does any bullet hold more than one fact, or exceed about 20 words?
-6. Is any line state or implementation detail that will be wrong next month?
-7. Is history mixed into the body instead of the `History:` line?
-
-Report each finding as file, line, and the rewrite, not just the rule it breaks.
+Check it against the sections and the "Before you publish" list, then report each finding as the
+section, what is wrong, and the rewrite.
