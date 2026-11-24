@@ -13,9 +13,8 @@ it costs. Each decision gets two outputs:
 2. **The readable page**: a one-page HTML artifact that lets someone who will never read the record
    understand the decision in under a minute. It links back to the record.
 
-Worked examples of both are bundled: `references/example-adr.md` (the record) and
-`assets/example-page.html` (the page). Read both before writing; they show the target shape better
-than any rule here.
+`references/example-adr.md` is a worked record, and the `readable-page` skill bundles the matching
+page. Read both before writing; they show the target shape better than any rule here.
 
 Use it even when the user only describes a decision ("we'll send pushes ourselves") without saying
 "ADR".
@@ -35,9 +34,8 @@ named, which tracker the ticket ids come from, and the brand the page uses. Look
    invent a reason: if nobody recorded one, ask.
 2. **Draft the record** in the format below and show it to the user. Publish it only after they say
    so. Publishing is outward-facing, and the team reads it.
-3. **Build the readable page** from `assets/example-page.html`: keep its CSS, layout and component
-   classes, and replace the content and the diagram. Publish it as an HTML artifact and link the
-   record in its footer.
+3. **Build the readable page** (below). Publish it as an HTML artifact and link the record in its
+   footer.
 4. **Iterate.** The user usually changes the decision several times while reviewing. Apply each
    change to both outputs in the same turn so they never disagree. Before you overwrite a published
    record, fetch the live one; someone may have edited it.
@@ -75,62 +73,13 @@ Sections, in this order:
 
 ## The readable page
 
-Its job: whoever opens it knows the decision from the first screen and sees how it works from one
-picture. Everything else supports that.
+Build it with the `readable-page` skill; its bundled example is this kind of page. For an ADR it
+usually holds, in this order: the badge `ADR | YYYY-MM-DD`, the decision as the `h1`, the main
+wins, how it works with one diagram, now and later, the options with one line each (no matrix; that
+stays in the record), what it costs, the one-time setup, and a footer link to the record. Drop what
+this decision doesn't need.
 
-**Order** (each section's `h2` carries a small mono tag with the ADR term):
-
-1. A dark badge `ADR | YYYY-MM-DD`, and nothing else on that line.
-2. `h1`: the decision as a plain sentence with the key phrase in the accent colour.
-3. Lede: two or three sentences on who needs what, and what we do.
-4. Three short cards: the main wins.
-5. **Architecture**, "How it works": one paragraph, then one inline SVG diagram of the real
-   mechanism.
-6. **Scope**: two cards, "First version" and "Later" (dashed).
-7. **Options considered**, "Why this option": one row per option, the chosen one first and
-   highlighted, each with a one-line reason. No matrix; that stays in the record.
-8. **Consequences**, "What it costs": four cards in a 2×2 grid.
-9. **Next steps**: a numbered one-time setup list.
-10. Footer: links to the record and to the main design doc.
-
-**Look.** Light only.
-
-- Use the project's brand: its colours and fonts go into the example's `:root` tokens. Without a
-  brand, keep the example's tokens.
-- A near-white background with a faint accent glow at the top and a dot grid that fades out.
-- White cards with hairline borders and a 10px radius, and no shadows.
-- The accent darkened enough to read as text on white. A bright brand colour is only a tint.
-
-**The diagram.**
-
-- Draw the components that really exist, inside a dashed frame for the system the decision is
-  about. Each node gets a tinted icon tile, a title and one muted line, and chips carry key values
-  (`every 15 min`, `kind + id only`).
-- Edges have arrowheads. An accent pulse runs along them three times and replays on hover.
-- A dashed "Kept out" row at the bottom shows what the decision keeps out of bounds.
-- Reuse the example's SVG classes (`node`, `node-hot`, `frame`, `tile`, `chip`, `edge`, `flow`,
-  `off`).
-- Size every text against its box (about 6.5px per character at 12px). Widen the box or shorten the
-  label rather than letting text spill over.
-- Keep the example's fit script. Some apps render the fonts wider than your preview, and the script
-  grows chips to their text and squeezes any label that would still leave its box.
-
-**Copy.** Plain English, short sentences, at most five items per list. Name things the way the
-reader knows them.
-
-### Rejected on the page (do not bring these back)
-
-Anything that competes with the decision for attention goes.
-
-- **Status anywhere on the page:** no "Proposed" pill, step tracker or milestone bar. Status
-  belongs in the record.
-- **An issue-tracker layout:** no labels cloud, counters, properties sidebar, history timeline,
-  "next actions" board per role, or avatars.
-- **Middle-dot separators (`·`):** they read as filler. Use separate elements, commas or "and".
-- **Time estimates:** none on the page, not even per step.
-- **People's names** in steps: describe the step, not who does it.
-- **A dark theme**, and a long "Architecture Decision Record" caption next to the badge.
-- **Em dashes:** not anywhere, in the page or in the record.
+Never put the status on the page: it belongs in the record. No em dashes in the record either.
 
 ## Before you publish
 
